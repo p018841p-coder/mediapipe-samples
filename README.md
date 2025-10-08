@@ -1,9 +1,52 @@
-This repo hosts the official MediaPipe samples with a goal of showing the fundamental steps involved to create apps with our machine learning platform. 
+# Admin Panel Application
 
-External PRs for fixes are welcome, however new sample/demo PRs will likely be rejected to maintain the simplicity of this repo for ongoing maintenance. It is strongly recommended that contributors who are interested in submitting more complex samples or demos host their samples in their own public repos and create written tutorials to share with the community. Contributors can also submit these projects and tutorials to the [Google DevLibrary](https://devlibrary.withgoogle.com/)
+এই প্রজেক্টটিতে একটি সম্পূর্ণ অ্যাডমিন প্যানেল অ্যাপ্লিকেশন রয়েছে, যা দুটি প্রধান অংশে বিভক্ত:
+1.  **Backend Server:** পাইথন এবং ফ্লাস্ক ব্যবহার করে তৈরি একটি সার্ভার যা ডেটা পরিচালনা করে।
+2.  **Android App:** কটলিন এবং জেটপ্যাক কম্পোজ ব্যবহার করে তৈরি একটি অ্যান্ড্রয়েড অ্যাপ্লিকেশন যা ব্যবহারকারীদের জন্য একটি ইন্টারফেস প্রদান করে।
 
+---
 
-MediaPipe Solutions streamlines on-device ML development and deployment with flexible low-code / no-code tools that provide the modular building blocks for creating custom high-performance solutions for cross-platform deployment. It consists of the following components:
-* MediaPipe Tasks (low-code): create and deploy custom e2e ML solution pipelines
-* MediaPipe Model Maker (low-code): create custom ML models from advanced solutions
-* MediaPipe Studio (no-code): create, evaluate, debug, benchmark, prototype, deploy advanced production-level solutions
+## কিভাবে চালাবেন (How to Run)
+
+এই প্রজেক্টটি চালানোর জন্য আপনাকে নিচের দুটি অংশই চালু করতে হবে।
+
+### ধাপ ১: ব্যাকএন্ড সার্ভার চালু করা
+
+ব্যাকএন্ড সার্ভারটি আপনার কম্পিউটারে চলবে এবং অ্যান্ড্রয়েড অ্যাপকে ডেটা সরবরাহ করবে।
+
+1.  **টার্মিনাল খুলুন:** আপনার কম্পিউটারে একটি টার্মিনাল বা কমান্ড প্রম্পট খুলুন।
+2.  **ডিরেক্টরিতে যান:** টার্মিনালে এই প্রজেক্টের `backend` ফোল্ডারে যান।
+    ```bash
+    cd path/to/your/project/backend
+    ```
+3.  **লাইব্রেরি ইনস্টল করুন:** যদি `Flask` ইনস্টল করা না থাকে, তাহলে নিচের কমান্ডটি চালান:
+    ```bash
+    pip install -r requirements.txt
+    ```
+4.  **সার্ভার চালু করুন:** নিচের কমান্ডটি দিয়ে সার্ভারটি চালু করুন।
+    ```bash
+    python app.py
+    ```
+    সার্ভারটি সফলভাবে চালু হলে, আপনি টার্মিনালে `* Running on http://127.0.0.1:5000` বা `* Running on http://0.0.0.0:5000` এই ধরনের একটি বার্তা দেখতে পাবেন। সার্ভারটি চলতে থাকবে, টার্মিনালটি বন্ধ করবেন না।
+
+---
+
+### ধাপ ২: অ্যান্ড্রয়েড অ্যাপ্লিকেশন তৈরি এবং ইনস্টল করা
+
+অ্যান্ড্রয়েড অ্যাপটি তৈরি করার জন্য আপনার কম্পিউটারে অ্যান্ড্রয়েড স্টুডিও (Android Studio) ইনস্টল করা থাকতে হবে।
+
+1.  **অ্যান্ড্রয়েড স্টুডিও খুলুন:** আপনার কম্পিউটারে অ্যান্ড্রয়েড স্টুডিও খুলুন।
+2.  **প্রজেক্ট খুলুন:** "Open an existing project" বা "Open" অপশনে ক্লিক করুন এবং এই প্রজেক্টের `android` ফোল্ডারটি নির্বাচন করুন। অ্যান্ড্রয়েড স্টুডিও প্রজেক্টটি লোড এবং সিঙ্ক (sync) করার জন্য কিছুক্ষণ সময় নেবে।
+3.  **ডিভাইস নির্বাচন করুন:**
+    *   **ফিজিক্যাল ডিভাইস:** আপনার অ্যান্ড্রয়েড ফোনটি একটি USB কেবল দিয়ে কম্পিউটারের সাথে সংযুক্ত করুন এবং ডেভেলপার অপশন থেকে "USB Debugging" চালু করুন।
+    *   **এমুলেটর:** অ্যান্ড্রয়েড স্টুডিওর "Device Manager" থেকে একটি ভার্চুয়াল ডিভাইস (Emulator) তৈরি করে সেটি চালু করুন।
+4.  **অ্যাপটি চালান:** উপরের ટুলবার থেকে আপনার ডিভাইসটি নির্বাচন করুন এবং সবুজ 'Run' বা 'Play' বাটনে (▶) ক্লিক করুন। অ্যান্ড্রয়েড স্টুডিও স্বয়ংক্রিয়ভাবে অ্যাপটি তৈরি করবে (build করবে) এবং আপনার নির্বাচিত ডিভাইস বা এমুলেটরে ইনস্টল করে দেবে।
+
+---
+
+### অ্যাপটি ব্যবহার করা
+
+1.  **লগইন:** অ্যাপটি খুললে আপনি একটি লগইন স্ক্রিন দেখতে পাবেন। পাসওয়ার্ডটি হলো: `password`।
+2.  **ড্যাশবোর্ড:** সফলভাবে লগইন করার পর, আপনি ড্যাশবোর্ড দেখতে পাবেন। এখানে আপনি পোস্ট দেখতে, তৈরি করতে, সম্পাদনা করতে এবং মুছতে পারবেন।
+
+এই নির্দেশনা অনুসরণ করার পরও যদি কোনো সমস্যা হয়, তাহলে আমাকে জানাতে পারেন।
