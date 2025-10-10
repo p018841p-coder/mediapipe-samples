@@ -82,6 +82,13 @@ class UiState(
         _currentMessageId = chatMessage.id
     }
 
+    /** Removes the last message. */
+    fun removeLastMessage() {
+        if (_messages.isNotEmpty()) {
+            _messages.removeLast()
+        }
+    }
+
     /** Clear all messages. */
     fun clearMessages() {
         _messages.clear()

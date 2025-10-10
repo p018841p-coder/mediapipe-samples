@@ -55,6 +55,7 @@ class ChatViewModel(
                     }
                 }, Dispatchers.Main.asExecutor())
             } catch (e: Exception) {
+                _uiState.value.removeLastMessage()
                 _uiState.value.addMessage(e.localizedMessage ?: "Unknown Error", MODEL_PREFIX)
                 setInputEnabled(true)
             }
